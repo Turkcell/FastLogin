@@ -1,0 +1,11 @@
+framework module DigitalGate {
+  umbrella header "DigitalGate.h"
+
+  export *
+  module * { export * }
+}
+
+module DigitalGate.Swift {
+    header "DigitalGate-Swift.h"
+    requires objc
+}
