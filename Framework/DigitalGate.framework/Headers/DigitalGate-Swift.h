@@ -165,6 +165,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_feature(modules)
 @import ObjectiveC;
 @import UIKit;
+@import WebKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -301,6 +302,11 @@ SWIFT_PROTOCOL("_TtP11DigitalGate24LoginCoordinatorDelegate_")
 
 
 
+
+
+@interface WKWebView (SWIFT_EXTENSION(DigitalGate))
+@property (nonatomic, readonly) UIEdgeInsets safeAreaInsets;
+@end
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
