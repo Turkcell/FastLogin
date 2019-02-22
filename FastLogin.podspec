@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.authors      = "Turkcell",
   s.name         = "FastLogin"
   s.summary      = "Fast Login"
-  s.version      = "1.10"
+  s.version      = "1.11"
   s.homepage     = "https://www.turkcell.com.tr"
   s.license      = { :type => 'Apache 2.0', :file => 'LICENSE' }
 
