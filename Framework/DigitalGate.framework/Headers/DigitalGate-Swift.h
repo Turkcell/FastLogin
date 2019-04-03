@@ -208,7 +208,6 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
   DGLanguageNL = 9,
 };
 
-@class UIViewController;
 @class DGTheme;
 @protocol LoginCoordinatorDelegate;
 @protocol LoginCoordinatorLoggerDelegate;
@@ -217,7 +216,6 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
 SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @interface DGLoginCoordinator : NSObject
 @property (nonatomic, copy) NSString * _Nullable demoFlow;
-@property (nonatomic, strong) UIViewController * _Nullable rootViewController;
 @property (nonatomic, strong) DGTheme * _Nonnull theme;
 @property (nonatomic, copy) NSString * _Nullable appID;
 @property (nonatomic) BOOL disableCell;
@@ -231,13 +229,6 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic) BOOL dismissCloseButton;
 @property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
-- (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
-- (void)startWithDgFlow:(enum DGFlow)dgFlow;
-- (void)loginWithToken:(NSString * _Nonnull)token;
-- (void)configurationFailureWithConfigError:(NSString * _Nonnull)configError;
-- (void)failure:(NSString * _Nonnull)reason errorMessage:(NSString * _Nonnull)errorMessage;
-- (void)logout;
-- (void)disableKeyboardManager;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -514,7 +505,6 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
   DGLanguageNL = 9,
 };
 
-@class UIViewController;
 @class DGTheme;
 @protocol LoginCoordinatorDelegate;
 @protocol LoginCoordinatorLoggerDelegate;
@@ -523,7 +513,6 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
 SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @interface DGLoginCoordinator : NSObject
 @property (nonatomic, copy) NSString * _Nullable demoFlow;
-@property (nonatomic, strong) UIViewController * _Nullable rootViewController;
 @property (nonatomic, strong) DGTheme * _Nonnull theme;
 @property (nonatomic, copy) NSString * _Nullable appID;
 @property (nonatomic) BOOL disableCell;
@@ -537,13 +526,6 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic) BOOL dismissCloseButton;
 @property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
-- (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
-- (void)startWithDgFlow:(enum DGFlow)dgFlow;
-- (void)loginWithToken:(NSString * _Nonnull)token;
-- (void)configurationFailureWithConfigError:(NSString * _Nonnull)configError;
-- (void)failure:(NSString * _Nonnull)reason errorMessage:(NSString * _Nonnull)errorMessage;
-- (void)logout;
-- (void)disableKeyboardManager;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
