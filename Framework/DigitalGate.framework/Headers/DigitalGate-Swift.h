@@ -198,6 +198,9 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
   DGLanguageUA = 4,
   DGLanguageUK = 5,
   DGLanguageRU = 6,
+  DGLanguageFR = 7,
+  DGLanguageES = 8,
+  DGLanguageNL = 9,
 };
 
 @class UIViewController;
