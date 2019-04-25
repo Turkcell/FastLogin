@@ -211,6 +211,7 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
 @class DGTheme;
 @protocol LoginCoordinatorDelegate;
 @protocol LoginCoordinatorLoggerDelegate;
+@class UIViewController;
 
 /// DGLoginCoordinator is a class that responsible from login process of Turkcell applications
 SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
@@ -229,6 +230,8 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic) BOOL dismissCloseButton;
 @property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
+- (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
+- (void)startWithDgFlow:(enum DGFlow)dgFlow;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
@@ -534,6 +537,7 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
 @class DGTheme;
 @protocol LoginCoordinatorDelegate;
 @protocol LoginCoordinatorLoggerDelegate;
+@class UIViewController;
 
 /// DGLoginCoordinator is a class that responsible from login process of Turkcell applications
 SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
@@ -552,6 +556,8 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic) BOOL dismissCloseButton;
 @property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
+- (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
+- (void)startWithDgFlow:(enum DGFlow)dgFlow;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
