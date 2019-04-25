@@ -239,9 +239,35 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 
 
 
+@class UIImage;
+@class UIColor;
 
 SWIFT_CLASS("_TtC11DigitalGate7DGTheme")
 @interface DGTheme : NSObject
+@property (nonatomic, strong) UIImage * _Nullable backButtonIcon;
+@property (nonatomic, strong) UIImage * _Nullable crossButtonIcon;
+@property (nonatomic, strong) UIImage * _Nullable registerButtonIcon;
+@property (nonatomic, strong) UIColor * _Nonnull backgroundColor;
+@property (nonatomic, strong) UIColor * _Nonnull titleLabelColor;
+@property (nonatomic, strong) UIColor * _Nonnull descriptionTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull textFieldSeperatorColor;
+@property (nonatomic, strong) UIColor * _Nonnull positiveButtonBackgroundColor;
+@property (nonatomic, strong) UIColor * _Nonnull negativeButtonBackgroundColor;
+@property (nonatomic, strong) UIColor * _Nonnull positiveButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull negativeButtonTextColor;
+@property (nonatomic, strong) UIImage * _Nullable infoPopupImage;
+@property (nonatomic, strong) UIImage * _Nullable errorPopupImage;
+@property (nonatomic, strong) UIImage * _Nullable checkBoxActiveIcon;
+@property (nonatomic, strong) UIImage * _Nullable checkBoxPassiveIcon;
+@property (nonatomic, strong) UIImage * _Nullable regionSelectIcon;
+@property (nonatomic, strong) UIColor * _Nonnull popUpBottomColor;
+@property (nonatomic, strong) UIColor * _Nonnull popUpTopColor;
+@property (nonatomic, strong) UIColor * _Nonnull popupTitleLabelColor;
+@property (nonatomic, strong) UIColor * _Nonnull popupDescriptionTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull roundedFillButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull roundedFillButtonBackgroundColor;
+@property (nonatomic, strong) UIColor * _Nonnull roundedTransparentButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull roundedTransparentButtonBorderColor;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -536,9 +562,35 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 
 
 
+@class UIImage;
+@class UIColor;
 
 SWIFT_CLASS("_TtC11DigitalGate7DGTheme")
 @interface DGTheme : NSObject
+@property (nonatomic, strong) UIImage * _Nullable backButtonIcon;
+@property (nonatomic, strong) UIImage * _Nullable crossButtonIcon;
+@property (nonatomic, strong) UIImage * _Nullable registerButtonIcon;
+@property (nonatomic, strong) UIColor * _Nonnull backgroundColor;
+@property (nonatomic, strong) UIColor * _Nonnull titleLabelColor;
+@property (nonatomic, strong) UIColor * _Nonnull descriptionTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull textFieldSeperatorColor;
+@property (nonatomic, strong) UIColor * _Nonnull positiveButtonBackgroundColor;
+@property (nonatomic, strong) UIColor * _Nonnull negativeButtonBackgroundColor;
+@property (nonatomic, strong) UIColor * _Nonnull positiveButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull negativeButtonTextColor;
+@property (nonatomic, strong) UIImage * _Nullable infoPopupImage;
+@property (nonatomic, strong) UIImage * _Nullable errorPopupImage;
+@property (nonatomic, strong) UIImage * _Nullable checkBoxActiveIcon;
+@property (nonatomic, strong) UIImage * _Nullable checkBoxPassiveIcon;
+@property (nonatomic, strong) UIImage * _Nullable regionSelectIcon;
+@property (nonatomic, strong) UIColor * _Nonnull popUpBottomColor;
+@property (nonatomic, strong) UIColor * _Nonnull popUpTopColor;
+@property (nonatomic, strong) UIColor * _Nonnull popupTitleLabelColor;
+@property (nonatomic, strong) UIColor * _Nonnull popupDescriptionTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull roundedFillButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull roundedFillButtonBackgroundColor;
+@property (nonatomic, strong) UIColor * _Nonnull roundedTransparentButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull roundedTransparentButtonBorderColor;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
