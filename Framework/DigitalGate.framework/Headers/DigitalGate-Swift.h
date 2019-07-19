@@ -232,6 +232,11 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
 - (void)startWithDgFlow:(enum DGFlow)dgFlow;
+- (void)loginWithToken:(NSString * _Nonnull)token;
+- (void)configurationFailureWithConfigError:(NSString * _Nonnull)configError;
+- (void)failure:(NSString * _Nonnull)reason errorMessage:(NSString * _Nonnull)errorMessage;
+- (void)logout;
+- (void)disableKeyboardManager;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
@@ -558,6 +563,11 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
 - (void)startWithDgFlow:(enum DGFlow)dgFlow;
+- (void)loginWithToken:(NSString * _Nonnull)token;
+- (void)configurationFailureWithConfigError:(NSString * _Nonnull)configError;
+- (void)failure:(NSString * _Nonnull)reason errorMessage:(NSString * _Nonnull)errorMessage;
+- (void)logout;
+- (void)disableKeyboardManager;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
