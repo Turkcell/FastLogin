@@ -204,11 +204,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+typedef SWIFT_ENUM(NSInteger, DGEnvironment, closed) {
+  DGEnvironmentTest = 0,
+  DGEnvironmentPrp = 1,
+  DGEnvironmentProd = 2,
+};
+
 typedef SWIFT_ENUM(NSInteger, DGFlow, closed) {
   DGFlowLogin = 0,
   DGFlowRegister = 1,
   DGFlowChange_user = 2,
-  DGFlowMclogin = 3,
 };
 
 typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
@@ -224,7 +229,6 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
   DGLanguageNL = 9,
 };
 
-@class DGTheme;
 @protocol LoginCoordinatorDelegate;
 @protocol LoginCoordinatorLoggerDelegate;
 @class UIViewController;
@@ -233,13 +237,12 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
 SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @interface DGLoginCoordinator : NSObject
 @property (nonatomic, copy) NSString * _Nullable demoFlow;
-@property (nonatomic, strong) DGTheme * _Nonnull theme;
 @property (nonatomic, copy) NSString * _Nullable appID;
 @property (nonatomic) BOOL disableCell;
 @property (nonatomic) BOOL autoLoginOnly;
 @property (nonatomic) BOOL disableAutoLogin;
 @property (nonatomic) enum DGLanguage language;
-@property (nonatomic) BOOL useTestServer;
+@property (nonatomic) enum DGEnvironment environment;
 @property (nonatomic, copy) NSString * _Nullable accessGroup;
 @property (nonatomic, copy) NSString * _Nullable transferToken;
 @property (nonatomic) BOOL isWidget;
@@ -248,11 +251,6 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
 - (void)startWithDgFlow:(enum DGFlow)dgFlow;
-- (void)loginWithToken:(NSString * _Nonnull)token;
-- (void)configurationFailureWithConfigError:(NSString * _Nonnull)configError;
-- (void)failure:(NSString * _Nonnull)reason errorMessage:(NSString * _Nonnull)errorMessage;
-- (void)logout;
-- (void)disableKeyboardManager;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -262,38 +260,6 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 
 
 
-
-@class UIImage;
-@class UIColor;
-
-SWIFT_CLASS("_TtC11DigitalGate7DGTheme")
-@interface DGTheme : NSObject
-@property (nonatomic, strong) UIImage * _Nullable backButtonIcon;
-@property (nonatomic, strong) UIImage * _Nullable crossButtonIcon;
-@property (nonatomic, strong) UIImage * _Nullable registerButtonIcon;
-@property (nonatomic, strong) UIColor * _Nonnull backgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull titleLabelColor;
-@property (nonatomic, strong) UIColor * _Nonnull descriptionTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull textFieldSeperatorColor;
-@property (nonatomic, strong) UIColor * _Nonnull positiveButtonBackgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull negativeButtonBackgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull positiveButtonTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull negativeButtonTextColor;
-@property (nonatomic, strong) UIImage * _Nullable infoPopupImage;
-@property (nonatomic, strong) UIImage * _Nullable errorPopupImage;
-@property (nonatomic, strong) UIImage * _Nullable checkBoxActiveIcon;
-@property (nonatomic, strong) UIImage * _Nullable checkBoxPassiveIcon;
-@property (nonatomic, strong) UIImage * _Nullable regionSelectIcon;
-@property (nonatomic, strong) UIColor * _Nonnull popUpBottomColor;
-@property (nonatomic, strong) UIColor * _Nonnull popUpTopColor;
-@property (nonatomic, strong) UIColor * _Nonnull popupTitleLabelColor;
-@property (nonatomic, strong) UIColor * _Nonnull popupDescriptionTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedFillButtonTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedFillButtonBackgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedTransparentButtonTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedTransparentButtonBorderColor;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 SWIFT_PROTOCOL("_TtP11DigitalGate24LoginCoordinatorDelegate_")
@@ -309,8 +275,6 @@ SWIFT_PROTOCOL("_TtP11DigitalGate30LoginCoordinatorLoggerDelegate_")
 @optional
 - (void)dgServiceLogWithLog:(NSString * _Nonnull)log;
 @end
-
-
 
 
 
@@ -550,11 +514,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+typedef SWIFT_ENUM(NSInteger, DGEnvironment, closed) {
+  DGEnvironmentTest = 0,
+  DGEnvironmentPrp = 1,
+  DGEnvironmentProd = 2,
+};
+
 typedef SWIFT_ENUM(NSInteger, DGFlow, closed) {
   DGFlowLogin = 0,
   DGFlowRegister = 1,
   DGFlowChange_user = 2,
-  DGFlowMclogin = 3,
 };
 
 typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
@@ -570,7 +539,6 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
   DGLanguageNL = 9,
 };
 
-@class DGTheme;
 @protocol LoginCoordinatorDelegate;
 @protocol LoginCoordinatorLoggerDelegate;
 @class UIViewController;
@@ -579,13 +547,12 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
 SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @interface DGLoginCoordinator : NSObject
 @property (nonatomic, copy) NSString * _Nullable demoFlow;
-@property (nonatomic, strong) DGTheme * _Nonnull theme;
 @property (nonatomic, copy) NSString * _Nullable appID;
 @property (nonatomic) BOOL disableCell;
 @property (nonatomic) BOOL autoLoginOnly;
 @property (nonatomic) BOOL disableAutoLogin;
 @property (nonatomic) enum DGLanguage language;
-@property (nonatomic) BOOL useTestServer;
+@property (nonatomic) enum DGEnvironment environment;
 @property (nonatomic, copy) NSString * _Nullable accessGroup;
 @property (nonatomic, copy) NSString * _Nullable transferToken;
 @property (nonatomic) BOOL isWidget;
@@ -594,11 +561,6 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
 - (void)startWithDgFlow:(enum DGFlow)dgFlow;
-- (void)loginWithToken:(NSString * _Nonnull)token;
-- (void)configurationFailureWithConfigError:(NSString * _Nonnull)configError;
-- (void)failure:(NSString * _Nonnull)reason errorMessage:(NSString * _Nonnull)errorMessage;
-- (void)logout;
-- (void)disableKeyboardManager;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -608,38 +570,6 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 
 
 
-
-@class UIImage;
-@class UIColor;
-
-SWIFT_CLASS("_TtC11DigitalGate7DGTheme")
-@interface DGTheme : NSObject
-@property (nonatomic, strong) UIImage * _Nullable backButtonIcon;
-@property (nonatomic, strong) UIImage * _Nullable crossButtonIcon;
-@property (nonatomic, strong) UIImage * _Nullable registerButtonIcon;
-@property (nonatomic, strong) UIColor * _Nonnull backgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull titleLabelColor;
-@property (nonatomic, strong) UIColor * _Nonnull descriptionTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull textFieldSeperatorColor;
-@property (nonatomic, strong) UIColor * _Nonnull positiveButtonBackgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull negativeButtonBackgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull positiveButtonTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull negativeButtonTextColor;
-@property (nonatomic, strong) UIImage * _Nullable infoPopupImage;
-@property (nonatomic, strong) UIImage * _Nullable errorPopupImage;
-@property (nonatomic, strong) UIImage * _Nullable checkBoxActiveIcon;
-@property (nonatomic, strong) UIImage * _Nullable checkBoxPassiveIcon;
-@property (nonatomic, strong) UIImage * _Nullable regionSelectIcon;
-@property (nonatomic, strong) UIColor * _Nonnull popUpBottomColor;
-@property (nonatomic, strong) UIColor * _Nonnull popUpTopColor;
-@property (nonatomic, strong) UIColor * _Nonnull popupTitleLabelColor;
-@property (nonatomic, strong) UIColor * _Nonnull popupDescriptionTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedFillButtonTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedFillButtonBackgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedTransparentButtonTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedTransparentButtonBorderColor;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 SWIFT_PROTOCOL("_TtP11DigitalGate24LoginCoordinatorDelegate_")
@@ -655,8 +585,6 @@ SWIFT_PROTOCOL("_TtP11DigitalGate30LoginCoordinatorLoggerDelegate_")
 @optional
 - (void)dgServiceLogWithLog:(NSString * _Nonnull)log;
 @end
-
-
 
 
 
@@ -899,11 +827,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+typedef SWIFT_ENUM(NSInteger, DGEnvironment, closed) {
+  DGEnvironmentTest = 0,
+  DGEnvironmentPrp = 1,
+  DGEnvironmentProd = 2,
+};
+
 typedef SWIFT_ENUM(NSInteger, DGFlow, closed) {
   DGFlowLogin = 0,
   DGFlowRegister = 1,
   DGFlowChange_user = 2,
-  DGFlowMclogin = 3,
 };
 
 typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
@@ -919,7 +852,6 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
   DGLanguageNL = 9,
 };
 
-@class DGTheme;
 @protocol LoginCoordinatorDelegate;
 @protocol LoginCoordinatorLoggerDelegate;
 @class UIViewController;
@@ -928,13 +860,12 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
 SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @interface DGLoginCoordinator : NSObject
 @property (nonatomic, copy) NSString * _Nullable demoFlow;
-@property (nonatomic, strong) DGTheme * _Nonnull theme;
 @property (nonatomic, copy) NSString * _Nullable appID;
 @property (nonatomic) BOOL disableCell;
 @property (nonatomic) BOOL autoLoginOnly;
 @property (nonatomic) BOOL disableAutoLogin;
 @property (nonatomic) enum DGLanguage language;
-@property (nonatomic) BOOL useTestServer;
+@property (nonatomic) enum DGEnvironment environment;
 @property (nonatomic, copy) NSString * _Nullable accessGroup;
 @property (nonatomic, copy) NSString * _Nullable transferToken;
 @property (nonatomic) BOOL isWidget;
@@ -943,11 +874,6 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
 - (void)startWithDgFlow:(enum DGFlow)dgFlow;
-- (void)loginWithToken:(NSString * _Nonnull)token;
-- (void)configurationFailureWithConfigError:(NSString * _Nonnull)configError;
-- (void)failure:(NSString * _Nonnull)reason errorMessage:(NSString * _Nonnull)errorMessage;
-- (void)logout;
-- (void)disableKeyboardManager;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -957,38 +883,6 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 
 
 
-
-@class UIImage;
-@class UIColor;
-
-SWIFT_CLASS("_TtC11DigitalGate7DGTheme")
-@interface DGTheme : NSObject
-@property (nonatomic, strong) UIImage * _Nullable backButtonIcon;
-@property (nonatomic, strong) UIImage * _Nullable crossButtonIcon;
-@property (nonatomic, strong) UIImage * _Nullable registerButtonIcon;
-@property (nonatomic, strong) UIColor * _Nonnull backgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull titleLabelColor;
-@property (nonatomic, strong) UIColor * _Nonnull descriptionTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull textFieldSeperatorColor;
-@property (nonatomic, strong) UIColor * _Nonnull positiveButtonBackgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull negativeButtonBackgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull positiveButtonTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull negativeButtonTextColor;
-@property (nonatomic, strong) UIImage * _Nullable infoPopupImage;
-@property (nonatomic, strong) UIImage * _Nullable errorPopupImage;
-@property (nonatomic, strong) UIImage * _Nullable checkBoxActiveIcon;
-@property (nonatomic, strong) UIImage * _Nullable checkBoxPassiveIcon;
-@property (nonatomic, strong) UIImage * _Nullable regionSelectIcon;
-@property (nonatomic, strong) UIColor * _Nonnull popUpBottomColor;
-@property (nonatomic, strong) UIColor * _Nonnull popUpTopColor;
-@property (nonatomic, strong) UIColor * _Nonnull popupTitleLabelColor;
-@property (nonatomic, strong) UIColor * _Nonnull popupDescriptionTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedFillButtonTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedFillButtonBackgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedTransparentButtonTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedTransparentButtonBorderColor;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 SWIFT_PROTOCOL("_TtP11DigitalGate24LoginCoordinatorDelegate_")
@@ -1004,8 +898,6 @@ SWIFT_PROTOCOL("_TtP11DigitalGate30LoginCoordinatorLoggerDelegate_")
 @optional
 - (void)dgServiceLogWithLog:(NSString * _Nonnull)log;
 @end
-
-
 
 
 
@@ -1245,11 +1137,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+typedef SWIFT_ENUM(NSInteger, DGEnvironment, closed) {
+  DGEnvironmentTest = 0,
+  DGEnvironmentPrp = 1,
+  DGEnvironmentProd = 2,
+};
+
 typedef SWIFT_ENUM(NSInteger, DGFlow, closed) {
   DGFlowLogin = 0,
   DGFlowRegister = 1,
   DGFlowChange_user = 2,
-  DGFlowMclogin = 3,
 };
 
 typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
@@ -1265,7 +1162,6 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
   DGLanguageNL = 9,
 };
 
-@class DGTheme;
 @protocol LoginCoordinatorDelegate;
 @protocol LoginCoordinatorLoggerDelegate;
 @class UIViewController;
@@ -1274,13 +1170,12 @@ typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
 SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @interface DGLoginCoordinator : NSObject
 @property (nonatomic, copy) NSString * _Nullable demoFlow;
-@property (nonatomic, strong) DGTheme * _Nonnull theme;
 @property (nonatomic, copy) NSString * _Nullable appID;
 @property (nonatomic) BOOL disableCell;
 @property (nonatomic) BOOL autoLoginOnly;
 @property (nonatomic) BOOL disableAutoLogin;
 @property (nonatomic) enum DGLanguage language;
-@property (nonatomic) BOOL useTestServer;
+@property (nonatomic) enum DGEnvironment environment;
 @property (nonatomic, copy) NSString * _Nullable accessGroup;
 @property (nonatomic, copy) NSString * _Nullable transferToken;
 @property (nonatomic) BOOL isWidget;
@@ -1289,11 +1184,6 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
 - (void)startWithDgFlow:(enum DGFlow)dgFlow;
-- (void)loginWithToken:(NSString * _Nonnull)token;
-- (void)configurationFailureWithConfigError:(NSString * _Nonnull)configError;
-- (void)failure:(NSString * _Nonnull)reason errorMessage:(NSString * _Nonnull)errorMessage;
-- (void)logout;
-- (void)disableKeyboardManager;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1303,38 +1193,6 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 
 
 
-
-@class UIImage;
-@class UIColor;
-
-SWIFT_CLASS("_TtC11DigitalGate7DGTheme")
-@interface DGTheme : NSObject
-@property (nonatomic, strong) UIImage * _Nullable backButtonIcon;
-@property (nonatomic, strong) UIImage * _Nullable crossButtonIcon;
-@property (nonatomic, strong) UIImage * _Nullable registerButtonIcon;
-@property (nonatomic, strong) UIColor * _Nonnull backgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull titleLabelColor;
-@property (nonatomic, strong) UIColor * _Nonnull descriptionTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull textFieldSeperatorColor;
-@property (nonatomic, strong) UIColor * _Nonnull positiveButtonBackgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull negativeButtonBackgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull positiveButtonTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull negativeButtonTextColor;
-@property (nonatomic, strong) UIImage * _Nullable infoPopupImage;
-@property (nonatomic, strong) UIImage * _Nullable errorPopupImage;
-@property (nonatomic, strong) UIImage * _Nullable checkBoxActiveIcon;
-@property (nonatomic, strong) UIImage * _Nullable checkBoxPassiveIcon;
-@property (nonatomic, strong) UIImage * _Nullable regionSelectIcon;
-@property (nonatomic, strong) UIColor * _Nonnull popUpBottomColor;
-@property (nonatomic, strong) UIColor * _Nonnull popUpTopColor;
-@property (nonatomic, strong) UIColor * _Nonnull popupTitleLabelColor;
-@property (nonatomic, strong) UIColor * _Nonnull popupDescriptionTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedFillButtonTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedFillButtonBackgroundColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedTransparentButtonTextColor;
-@property (nonatomic, strong) UIColor * _Nonnull roundedTransparentButtonBorderColor;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 SWIFT_PROTOCOL("_TtP11DigitalGate24LoginCoordinatorDelegate_")
@@ -1350,8 +1208,6 @@ SWIFT_PROTOCOL("_TtP11DigitalGate30LoginCoordinatorLoggerDelegate_")
 @optional
 - (void)dgServiceLogWithLog:(NSString * _Nonnull)log;
 @end
-
-
 
 
 
