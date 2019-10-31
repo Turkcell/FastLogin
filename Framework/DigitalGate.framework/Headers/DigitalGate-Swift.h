@@ -244,6 +244,7 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, copy) NSString * _Nullable transferToken;
 @property (nonatomic) BOOL isWidget;
 @property (nonatomic) BOOL dismissCloseButton;
+@property (nonatomic) NSInteger maximumRetryCount;
 @property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
@@ -590,6 +591,7 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, copy) NSString * _Nullable transferToken;
 @property (nonatomic) BOOL isWidget;
 @property (nonatomic) BOOL dismissCloseButton;
+@property (nonatomic) NSInteger maximumRetryCount;
 @property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
@@ -939,6 +941,7 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, copy) NSString * _Nullable transferToken;
 @property (nonatomic) BOOL isWidget;
 @property (nonatomic) BOOL dismissCloseButton;
+@property (nonatomic) NSInteger maximumRetryCount;
 @property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
@@ -1285,6 +1288,7 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, copy) NSString * _Nullable transferToken;
 @property (nonatomic) BOOL isWidget;
 @property (nonatomic) BOOL dismissCloseButton;
+@property (nonatomic) NSInteger maximumRetryCount;
 @property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
