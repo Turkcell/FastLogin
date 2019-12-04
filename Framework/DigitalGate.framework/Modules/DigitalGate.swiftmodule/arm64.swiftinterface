@@ -1,0 +1,135 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)
+// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name DigitalGate
+import AudioToolbox
+import CoreGraphics
+import CoreTelephony
+@_exported import DigitalGate
+import Foundation
+import QuartzCore
+import Swift
+import SystemConfiguration
+import UIKit
+import WebKit
+@objc public class DGTheme : ObjectiveC.NSObject {
+  @objc public var backButtonIcon: UIKit.UIImage?
+  @objc public var crossButtonIcon: UIKit.UIImage?
+  @objc public var registerButtonIcon: UIKit.UIImage?
+  @objc public var backgroundColor: UIKit.UIColor
+  @objc public var titleLabelColor: UIKit.UIColor
+  @objc public var descriptionTextColor: UIKit.UIColor
+  @objc public var textFieldSeperatorColor: UIKit.UIColor
+  @objc public var positiveButtonBackgroundColor: UIKit.UIColor
+  @objc public var negativeButtonBackgroundColor: UIKit.UIColor
+  @objc public var positiveButtonTextColor: UIKit.UIColor
+  @objc public var negativeButtonTextColor: UIKit.UIColor
+  @objc public var infoPopupImage: UIKit.UIImage?
+  @objc public var errorPopupImage: UIKit.UIImage?
+  @objc public var checkBoxActiveIcon: UIKit.UIImage?
+  @objc public var checkBoxPassiveIcon: UIKit.UIImage?
+  @objc public var regionSelectIcon: UIKit.UIImage?
+  @objc public var popUpBottomColor: UIKit.UIColor
+  @objc public var popUpTopColor: UIKit.UIColor
+  @objc public var popupTitleLabelColor: UIKit.UIColor
+  @objc public var popupDescriptionTextColor: UIKit.UIColor
+  @objc public var roundedFillButtonTextColor: UIKit.UIColor
+  @objc public var roundedFillButtonBackgroundColor: UIKit.UIColor
+  @objc public var roundedTransparentButtonTextColor: UIKit.UIColor
+  @objc public var roundedTransparentButtonBorderColor: UIKit.UIColor
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension WKWebView {
+  @objc override dynamic open var safeAreaInsets: UIKit.UIEdgeInsets {
+    @objc get
+  }
+}
+public class TestItemModel {
+  @objc deinit
+}
+@objc open class DGLoginCoordinator : ObjectiveC.NSObject {
+  @objc public var demoFlow: Swift.String?
+  public var rootViewController: UIKit.UIViewController?
+  @objc public var theme: DigitalGate.DGTheme
+  @objc public var appID: Swift.String? {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc public var disableCell: Swift.Bool
+  @objc public var autoLoginOnly: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc public var disableAutoLogin: Swift.Bool
+  @objc public var language: DigitalGate.DGLanguage
+  @objc public var useTestServer: Swift.Bool
+  @objc public var accessGroup: Swift.String?
+  @objc public var transferToken: Swift.String?
+  @objc public var isWidget: Swift.Bool
+  @objc public var dismissCloseButton: Swift.Bool
+  @objc public var maximumRetryCount: Swift.Int {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc weak public var coordinatorDelegate: DigitalGate.LoginCoordinatorDelegate?
+  @objc weak public var coordinatorLoggerDelegate: DigitalGate.LoginCoordinatorLoggerDelegate? {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc public init(_ rootViewController: UIKit.UIViewController?)
+  @objc open func start(dgFlow: DigitalGate.DGFlow = .login)
+  @objc open func login(token: Swift.String)
+  @objc open func configurationFailure(configError: Swift.String)
+  @objc open func failure(_ reason: Swift.String, errorMessage: Swift.String)
+  @objc public func logout()
+  @objc deinit
+  @objc public func disableKeyboardManager()
+  @objc override dynamic public init()
+}
+@objc public protocol LoginCoordinatorDelegate {
+  @objc func dgLoginToken(_ token: Swift.String)
+  @objc func dgLoginFailure(_ reason: Swift.String, errorMessage: Swift.String)
+  @objc func dgConfigurationFailure(configError: Swift.String)
+}
+@objc public protocol LoginCoordinatorLoggerDelegate {
+  @objc optional func dgServiceLog(log: Swift.String)
+}
+public var dgKNotLoginToLoginSDK: Foundation.NSString
+public var dgKSessionTimeout: Foundation.NSString
+public var dgKUserExit: Foundation.NSString
+@objc public enum DGFlow : Swift.Int {
+  case login
+  case register
+  case change_user
+  case mclogin
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension DGFlow : Swift.Equatable {
+}
+public func == (lhs: DigitalGate.DGFlow, rhs: DigitalGate.DGFlow) -> Swift.Bool
+@objc public enum DGLanguage : Swift.Int {
+  case TR = 0
+  case EN
+  case DE
+  case BY
+  case UA
+  case UK
+  case RU
+  case FR
+  case ES
+  case NL
+  public func name() -> Swift.String
+  public static func `init`(from string: Swift.String) -> DigitalGate.DGLanguage
+  public static var allDGLanguages: [DigitalGate.DGLanguage] {
+    get
+  }
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
