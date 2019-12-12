@@ -204,29 +204,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-typedef SWIFT_ENUM(NSInteger, DGEnvironment, closed) {
+typedef SWIFT_ENUM(NSInteger, DGEnvironment, open) {
   DGEnvironmentTest = 0,
   DGEnvironmentPrp = 1,
   DGEnvironmentProd = 2,
 };
 
-typedef SWIFT_ENUM(NSInteger, DGFlow, closed) {
+typedef SWIFT_ENUM(NSInteger, DGFlow, open) {
   DGFlowLogin = 0,
   DGFlowRegister = 1,
   DGFlowChange_user = 2,
-};
-
-typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
-  DGLanguageTR = 0,
-  DGLanguageEN = 1,
-  DGLanguageDE = 2,
-  DGLanguageBY = 3,
-  DGLanguageUA = 4,
-  DGLanguageUK = 5,
-  DGLanguageRU = 6,
-  DGLanguageFR = 7,
-  DGLanguageES = 8,
-  DGLanguageNL = 9,
 };
 
 @protocol LoginCoordinatorDelegate;
@@ -241,7 +228,8 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic) BOOL disableCell;
 @property (nonatomic) BOOL autoLoginOnly;
 @property (nonatomic) BOOL disableAutoLogin;
-@property (nonatomic) enum DGLanguage language;
+/// Language parameter must be 2 characters
+@property (nonatomic, copy) NSString * _Nonnull language;
 @property (nonatomic) enum DGEnvironment environment;
 @property (nonatomic, copy) NSString * _Nullable accessGroup;
 @property (nonatomic, copy) NSString * _Nullable transferToken;
@@ -519,29 +507,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-typedef SWIFT_ENUM(NSInteger, DGEnvironment, closed) {
+typedef SWIFT_ENUM(NSInteger, DGEnvironment, open) {
   DGEnvironmentTest = 0,
   DGEnvironmentPrp = 1,
   DGEnvironmentProd = 2,
 };
 
-typedef SWIFT_ENUM(NSInteger, DGFlow, closed) {
+typedef SWIFT_ENUM(NSInteger, DGFlow, open) {
   DGFlowLogin = 0,
   DGFlowRegister = 1,
   DGFlowChange_user = 2,
-};
-
-typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
-  DGLanguageTR = 0,
-  DGLanguageEN = 1,
-  DGLanguageDE = 2,
-  DGLanguageBY = 3,
-  DGLanguageUA = 4,
-  DGLanguageUK = 5,
-  DGLanguageRU = 6,
-  DGLanguageFR = 7,
-  DGLanguageES = 8,
-  DGLanguageNL = 9,
 };
 
 @protocol LoginCoordinatorDelegate;
@@ -556,7 +531,8 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic) BOOL disableCell;
 @property (nonatomic) BOOL autoLoginOnly;
 @property (nonatomic) BOOL disableAutoLogin;
-@property (nonatomic) enum DGLanguage language;
+/// Language parameter must be 2 characters
+@property (nonatomic, copy) NSString * _Nonnull language;
 @property (nonatomic) enum DGEnvironment environment;
 @property (nonatomic, copy) NSString * _Nullable accessGroup;
 @property (nonatomic, copy) NSString * _Nullable transferToken;
@@ -837,29 +813,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-typedef SWIFT_ENUM(NSInteger, DGEnvironment, closed) {
+typedef SWIFT_ENUM(NSInteger, DGEnvironment, open) {
   DGEnvironmentTest = 0,
   DGEnvironmentPrp = 1,
   DGEnvironmentProd = 2,
 };
 
-typedef SWIFT_ENUM(NSInteger, DGFlow, closed) {
+typedef SWIFT_ENUM(NSInteger, DGFlow, open) {
   DGFlowLogin = 0,
   DGFlowRegister = 1,
   DGFlowChange_user = 2,
-};
-
-typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
-  DGLanguageTR = 0,
-  DGLanguageEN = 1,
-  DGLanguageDE = 2,
-  DGLanguageBY = 3,
-  DGLanguageUA = 4,
-  DGLanguageUK = 5,
-  DGLanguageRU = 6,
-  DGLanguageFR = 7,
-  DGLanguageES = 8,
-  DGLanguageNL = 9,
 };
 
 @protocol LoginCoordinatorDelegate;
@@ -874,7 +837,8 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic) BOOL disableCell;
 @property (nonatomic) BOOL autoLoginOnly;
 @property (nonatomic) BOOL disableAutoLogin;
-@property (nonatomic) enum DGLanguage language;
+/// Language parameter must be 2 characters
+@property (nonatomic, copy) NSString * _Nonnull language;
 @property (nonatomic) enum DGEnvironment environment;
 @property (nonatomic, copy) NSString * _Nullable accessGroup;
 @property (nonatomic, copy) NSString * _Nullable transferToken;
@@ -1152,29 +1116,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-typedef SWIFT_ENUM(NSInteger, DGEnvironment, closed) {
+typedef SWIFT_ENUM(NSInteger, DGEnvironment, open) {
   DGEnvironmentTest = 0,
   DGEnvironmentPrp = 1,
   DGEnvironmentProd = 2,
 };
 
-typedef SWIFT_ENUM(NSInteger, DGFlow, closed) {
+typedef SWIFT_ENUM(NSInteger, DGFlow, open) {
   DGFlowLogin = 0,
   DGFlowRegister = 1,
   DGFlowChange_user = 2,
-};
-
-typedef SWIFT_ENUM(NSInteger, DGLanguage, closed) {
-  DGLanguageTR = 0,
-  DGLanguageEN = 1,
-  DGLanguageDE = 2,
-  DGLanguageBY = 3,
-  DGLanguageUA = 4,
-  DGLanguageUK = 5,
-  DGLanguageRU = 6,
-  DGLanguageFR = 7,
-  DGLanguageES = 8,
-  DGLanguageNL = 9,
 };
 
 @protocol LoginCoordinatorDelegate;
@@ -1189,7 +1140,8 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic) BOOL disableCell;
 @property (nonatomic) BOOL autoLoginOnly;
 @property (nonatomic) BOOL disableAutoLogin;
-@property (nonatomic) enum DGLanguage language;
+/// Language parameter must be 2 characters
+@property (nonatomic, copy) NSString * _Nonnull language;
 @property (nonatomic) enum DGEnvironment environment;
 @property (nonatomic, copy) NSString * _Nullable accessGroup;
 @property (nonatomic, copy) NSString * _Nullable transferToken;

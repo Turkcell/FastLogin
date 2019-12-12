@@ -1,0 +1,96 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)
+// swift-module-flags: -target armv7-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name DigitalGate
+import CoreGraphics
+import CoreTelephony
+@_exported import DigitalGate
+import Foundation
+import QuartzCore
+import Swift
+import SystemConfiguration
+import UIKit
+import WebKit
+extension WKWebView {
+  @objc override dynamic open var safeAreaInsets: UIKit.UIEdgeInsets {
+    @objc get
+  }
+}
+public enum DGLanguageError : Swift.Error {
+  case must
+  public static func == (a: DigitalGate.DGLanguageError, b: DigitalGate.DGLanguageError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@objc open class DGLoginCoordinator : ObjectiveC.NSObject {
+  @objc public var demoFlow: Swift.String?
+  public var rootViewController: UIKit.UIViewController?
+  @objc public var appID: Swift.String? {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc public var disableCell: Swift.Bool
+  @objc public var autoLoginOnly: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc public var disableAutoLogin: Swift.Bool
+  @objc public var language: Swift.String
+  @objc public var environment: DigitalGate.DGEnvironment
+  @objc public var accessGroup: Swift.String?
+  @objc public var transferToken: Swift.String?
+  @objc public var isWidget: Swift.Bool
+  @objc public var dismissCloseButton: Swift.Bool
+  @objc weak public var coordinatorDelegate: DigitalGate.LoginCoordinatorDelegate?
+  @objc weak public var coordinatorLoggerDelegate: DigitalGate.LoginCoordinatorLoggerDelegate? {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc public init(_ rootViewController: UIKit.UIViewController?)
+  @objc open func start(dgFlow: DigitalGate.DGFlow = .login)
+  @objc open func login(token: Swift.String)
+  @objc open func configurationFailure(configError: Swift.String)
+  @objc open func failure(_ reason: Swift.String, errorMessage: Swift.String)
+  @objc open func logout()
+  @objc deinit
+  @objc public func disableKeyboardManager()
+  @objc override dynamic public init()
+}
+@objc public protocol LoginCoordinatorDelegate {
+  @objc func dgLoginToken(_ token: Swift.String)
+  @objc func dgLoginFailure(_ reason: Swift.String, errorMessage: Swift.String)
+  @objc func dgConfigurationFailure(configError: Swift.String)
+}
+@objc public protocol LoginCoordinatorLoggerDelegate {
+  @objc optional func dgServiceLog(log: Swift.String)
+}
+public var dgKNotLoginToLoginSDK: Foundation.NSString
+public var dgKSessionTimeout: Foundation.NSString
+public var dgKUserExit: Foundation.NSString
+@objc public enum DGFlow : Swift.Int {
+  case login
+  case register
+  case change_user
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension DGFlow : Swift.Equatable {
+}
+public func == (lhs: DigitalGate.DGFlow, rhs: DigitalGate.DGFlow) -> Swift.Bool
+@objc public enum DGEnvironment : Swift.Int {
+  case test
+  case prp
+  case prod
+  public var title: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
