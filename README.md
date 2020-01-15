@@ -1,161 +1,98 @@
 # FastLogin
-
+ 
 FastLogin provides integration to Turkcell login  systems. We have developed an SDK that is highly robust, secure, lightweight, configurable and very simple to embed.
-
-The FastLogin IOS SDK is compatible with IOS 9.0 and above. Swift 3.2 and above
-
+ 
+The FastLogin IOS SDK is compatible with IOS 9.0 and above. Swift 5.0 and above
+ 
 ## Getting Started
-
+ 
 ### Installation
-
+ 
 Add to your pod file following
-
-pod FastLogin, '#version'
-
-### Caution
-
-For Objective C users,
-
-Since You cannot subclass a Swift class in Objective-C.
-
-Use coordinatorDelegate parameter to get callbacks, And handle following methods,
-
-```objective-c
-- (void)dgLoginToken:(NSString *)token {
-
-}
-
-- (void)dgLoginFailure:(NSString * _Nonnull)reason errorMessage:(NSString * _Nonnull)errorMessage {
-
-}
-
-- (void)dgConfigurationFailureWithConfigError:(NSString * _Nonnull)configError {
-    
-}
-
-    ...
-```
-
+ 
+pod 'FastLogin', :git => 'https://github.com/Turkcell/FastLogin.git', :branch => 'v2.0'
+ 
 #### Login Coordinator
-
-Everything is handled through the LoginCoordinator class. You insantiate it and pass the root view controller which is the UIViewController from which the Login process will be started (presented) on.
-
+ 
+Before starting the Login process you should provide following parameters,
+ 
+-appID: Application id which assigned to each app by FastLogin admin
+ 
+-language: Language of SDK default is TR
+ 
+-environment: using DGEnvironment test, prp or prod servers
+ 
+-disableCellLogin: if true, cellular login functionality won’t work.
+ 
+-autoLoginOnly: if true, only cellular login and remember me will work
+ 
+-disableAutoLogin: if true, login process is forced to user.
+ 
+-accessGroup: Keychain access group of applications if any,
+ 
+ 
 ```swift
-class ViewController: UIViewController, LoginCoordinatorDelegate {
-    lazy var loginCoordinator: LoginCoordinator = {
-        let loginVC = LoginCoordinator( self)
-        loginVC.delegate = self
-        return loginVC
-    }()
-
+class ViewController: UIViewController {
+    // Setup Login Coordinator
+    var loginCoordinator: DGLoginCoordinator!
+ 
+    private func setupLoginCoordinator() {
+        loginCoordinator = DGLoginCoordinator(self)
+        loginCoordinator.appID = "APP_ID"
+        loginCoordinator.language = "TR"
+        loginCoordinator.environment = DGEnvironment.test
+        loginCoordinator.disableCell = false
+        loginCoordinator.autoLoginOnly = false
+        loginCoordinator.disableAutoLogin = false
+        loginCoordinator.coordinatorDelegate = self
+    }
+ 
     ...
-
-
-    @IBAction func startAction(_ sender: Any) {
-        loginCoordinator.start(dgFlow: .login)
+}
+```
+ 
+Afterwards call start on the coordinator. That's it!
+```swift
+    private func start() {
+        loginCoordinator.start(dgFlow: DGFlow.login)
     }
-
-    @IBAction func registerAction(_ sender: Any) {
-        loginCoordinator.start(dgFlow: .register)
+```
+ 
+### Login Coordinator Delegate
+ 
+Login Coordinator Delegate methods to handle what happens after the user tries to login,
+ 
+Here you would call your own API.
+ 
+```swift
+extension ViewController: LoginCoordinatorDelegate {
+    func dgLoginToken(_ token: String) {
+        print("TOKEN \(token)")
     }
-
-    @IBAction func switchUserAction(_ sender: Any) {
-        loginCoordinator.start(dgFlow: .change_user)
+   
+    func dgLoginFailure(_ reason: String, errorMessage: String) {
+        if reason == dgKSessionTimeout as String {
+            print(errorMessage)
+        } else if reason == dgKUserExit as String {
+            print(errorMessage)
+        } else if reason == dgKNotLoginToLoginSDK as String {
+            print(errorMessage)
+        } else {
+            print(errorMessage)
+        }
     }
-
-    @IBAction func logoutAction(_ sender: Any) {
+   
+    func dgConfigurationFailure(configError: String) {
+       
+    }
+}
+```
+ 
+### Logout
+ 
+You can call the logout() method to logout from SDK.
+```swift
+    private func logOut() {
         loginCoordinator.logout()
     }
-
-    ...
 ```
-
-Afterwards call start on the coordinator. That's it!
-
-### Customization
-
-if you want to customize UI of the LoginCoordinator, you should provide the DGTheme object
-
-Please refer to project document for details..
-
-```swift
-
-class LoginCoordinator: DigitalGate.DGLoginCoordinator {
-
-}
-
-```
-
-### Start
-
-Handle anything you want to happen when LoginCoordinator starts. Make sure to call super.
-
-Before starting the Login process you should provide following parameters,
-
--appID: Application id which assigned to each app by FastLogin admin
-
--language: Language of SDK default is TR
-
--useTestServer: using Test or Prod servers
-
--disableCellLogin: if true, cellular login functionality won’t work.
-
--autoLoginOnly: if true, only cellular login and remember me will work
-
--disableAutoLogin: if true, login process is forced to user.
-
--accessGroup: Keychain access group of applications if any,
-
-
-```swift
-override func start(dgFlow: DGFlow) {
-    appID = "2"
-    useTestServer = true
-    disableAutoLogin = false
-    autoLoginOnly = false
-    disableCell = false
-    language = DGLanguage(from: "TR")
-    //accessGroup = ""
-    super.start(dgFlow: dgFlow)
-    configureAppearance()
-}
-```
-
-### Completion Callbacks
-
-Override these other 3 callback methods to handle what happens after the user tries to login,
-
-Here you would call your own API.
-
-```swift
-override func login(token: String) {
-    // Handle login via your API
-    delegate?.loginSucceeded(token)
-    print("Login with: email =\(token)")
-}
-
-override func configurationFailure(configError: String) {
-    print(configError)
-    delegate?.loginConfigurationFailure(configError: configError)
-}
-
-override func failure(_ reason: String, errorMessage: String) {
-
-    if reason == dgKSessionTimeout as String {
-        print(errorMessage)
-    } else if reason == dgKUserExit as String {
-        print(errorMessage)
-    } else if reason == dgKNotLoginToLoginSDK as String {
-        print(errorMessage)
-    }
-    delegate?.loginFailure(reason, errorMessage: errorMessage)
-}
-```
-
-### Logout
-
-You can call the logout() method to logout from SDK.
-
-## Author
-
-Ahmet Ömer Nesim, ahmet.nesim@turkcell.com.tr
