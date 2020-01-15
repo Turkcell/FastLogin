@@ -10,8 +10,10 @@ The FastLogin IOS SDK is compatible with IOS 9.0 and above. Swift 5.0 and above
  
 Add to your pod file following
  
+```ruby
 pod 'FastLogin', :git => 'https://github.com/Turkcell/FastLogin.git', :branch => 'v2.0'
- 
+```
+
 #### Login Coordinator
  
 Before starting the Login process you should provide following parameters,
