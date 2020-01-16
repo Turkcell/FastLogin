@@ -216,6 +216,8 @@ typedef SWIFT_ENUM(NSInteger, DGFlow, open) {
   DGFlowChange_user = 2,
 };
 
+@protocol LoginCoordinatorDelegate;
+@protocol LoginCoordinatorLoggerDelegate;
 @class UIViewController;
 
 /// DGLoginCoordinator is a class that responsible from login process of Turkcell applications
@@ -233,6 +235,8 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, copy) NSString * _Nullable transferToken;
 @property (nonatomic) BOOL isWidget;
 @property (nonatomic) BOOL dismissCloseButton;
+@property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
+@property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
 - (void)startWithDgFlow:(enum DGFlow)dgFlow;
 - (void)loginWithToken:(NSString * _Nonnull)token;
@@ -249,6 +253,21 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 
 
 
+
+
+SWIFT_PROTOCOL("_TtP11DigitalGate24LoginCoordinatorDelegate_")
+@protocol LoginCoordinatorDelegate
+- (void)dgLoginToken:(NSString * _Nonnull)token;
+- (void)dgLoginFailure:(NSString * _Nonnull)reason errorMessage:(NSString * _Nonnull)errorMessage;
+- (void)dgConfigurationFailureWithConfigError:(NSString * _Nonnull)configError;
+@end
+
+
+SWIFT_PROTOCOL("_TtP11DigitalGate30LoginCoordinatorLoggerDelegate_")
+@protocol LoginCoordinatorLoggerDelegate
+@optional
+- (void)dgServiceLogWithLog:(NSString * _Nonnull)log;
+@end
 
 
 
@@ -500,6 +519,8 @@ typedef SWIFT_ENUM(NSInteger, DGFlow, open) {
   DGFlowChange_user = 2,
 };
 
+@protocol LoginCoordinatorDelegate;
+@protocol LoginCoordinatorLoggerDelegate;
 @class UIViewController;
 
 /// DGLoginCoordinator is a class that responsible from login process of Turkcell applications
@@ -517,6 +538,8 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, copy) NSString * _Nullable transferToken;
 @property (nonatomic) BOOL isWidget;
 @property (nonatomic) BOOL dismissCloseButton;
+@property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
+@property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
 - (void)startWithDgFlow:(enum DGFlow)dgFlow;
 - (void)loginWithToken:(NSString * _Nonnull)token;
@@ -533,6 +556,21 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 
 
 
+
+
+SWIFT_PROTOCOL("_TtP11DigitalGate24LoginCoordinatorDelegate_")
+@protocol LoginCoordinatorDelegate
+- (void)dgLoginToken:(NSString * _Nonnull)token;
+- (void)dgLoginFailure:(NSString * _Nonnull)reason errorMessage:(NSString * _Nonnull)errorMessage;
+- (void)dgConfigurationFailureWithConfigError:(NSString * _Nonnull)configError;
+@end
+
+
+SWIFT_PROTOCOL("_TtP11DigitalGate30LoginCoordinatorLoggerDelegate_")
+@protocol LoginCoordinatorLoggerDelegate
+@optional
+- (void)dgServiceLogWithLog:(NSString * _Nonnull)log;
+@end
 
 
 
@@ -787,6 +825,8 @@ typedef SWIFT_ENUM(NSInteger, DGFlow, open) {
   DGFlowChange_user = 2,
 };
 
+@protocol LoginCoordinatorDelegate;
+@protocol LoginCoordinatorLoggerDelegate;
 @class UIViewController;
 
 /// DGLoginCoordinator is a class that responsible from login process of Turkcell applications
@@ -804,6 +844,8 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, copy) NSString * _Nullable transferToken;
 @property (nonatomic) BOOL isWidget;
 @property (nonatomic) BOOL dismissCloseButton;
+@property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
+@property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
 - (void)startWithDgFlow:(enum DGFlow)dgFlow;
 - (void)loginWithToken:(NSString * _Nonnull)token;
@@ -820,6 +862,21 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 
 
 
+
+
+SWIFT_PROTOCOL("_TtP11DigitalGate24LoginCoordinatorDelegate_")
+@protocol LoginCoordinatorDelegate
+- (void)dgLoginToken:(NSString * _Nonnull)token;
+- (void)dgLoginFailure:(NSString * _Nonnull)reason errorMessage:(NSString * _Nonnull)errorMessage;
+- (void)dgConfigurationFailureWithConfigError:(NSString * _Nonnull)configError;
+@end
+
+
+SWIFT_PROTOCOL("_TtP11DigitalGate30LoginCoordinatorLoggerDelegate_")
+@protocol LoginCoordinatorLoggerDelegate
+@optional
+- (void)dgServiceLogWithLog:(NSString * _Nonnull)log;
+@end
 
 
 
@@ -1071,6 +1128,8 @@ typedef SWIFT_ENUM(NSInteger, DGFlow, open) {
   DGFlowChange_user = 2,
 };
 
+@protocol LoginCoordinatorDelegate;
+@protocol LoginCoordinatorLoggerDelegate;
 @class UIViewController;
 
 /// DGLoginCoordinator is a class that responsible from login process of Turkcell applications
@@ -1088,6 +1147,8 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic, copy) NSString * _Nullable transferToken;
 @property (nonatomic) BOOL isWidget;
 @property (nonatomic) BOOL dismissCloseButton;
+@property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
+@property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
 - (nonnull instancetype)init:(UIViewController * _Nullable)rootViewController OBJC_DESIGNATED_INITIALIZER;
 - (void)startWithDgFlow:(enum DGFlow)dgFlow;
 - (void)loginWithToken:(NSString * _Nonnull)token;
@@ -1104,6 +1165,21 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 
 
 
+
+
+SWIFT_PROTOCOL("_TtP11DigitalGate24LoginCoordinatorDelegate_")
+@protocol LoginCoordinatorDelegate
+- (void)dgLoginToken:(NSString * _Nonnull)token;
+- (void)dgLoginFailure:(NSString * _Nonnull)reason errorMessage:(NSString * _Nonnull)errorMessage;
+- (void)dgConfigurationFailureWithConfigError:(NSString * _Nonnull)configError;
+@end
+
+
+SWIFT_PROTOCOL("_TtP11DigitalGate30LoginCoordinatorLoggerDelegate_")
+@protocol LoginCoordinatorLoggerDelegate
+@optional
+- (void)dgServiceLogWithLog:(NSString * _Nonnull)log;
+@end
 
 
 
