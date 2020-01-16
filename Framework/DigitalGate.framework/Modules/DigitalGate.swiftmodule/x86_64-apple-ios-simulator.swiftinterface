@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)
+// swift-compiler-version: Apple Swift version 5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)
 // swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name DigitalGate
 import CoreGraphics
 import CoreTelephony
@@ -42,10 +42,10 @@ public enum DGLanguageError : Swift.Error {
   @objc public var transferToken: Swift.String?
   @objc public var isWidget: Swift.Bool
   @objc public var dismissCloseButton: Swift.Bool
-  @objc weak public var coordinatorDelegate: DigitalGate.LoginCoordinatorDelegate?
-  @objc weak public var coordinatorLoggerDelegate: DigitalGate.LoginCoordinatorLoggerDelegate? {
-    @objc get
-    @objc set(newValue)
+  weak public var coordinatorDelegate: DigitalGate.LoginCoordinatorDelegate?
+  weak public var coordinatorLoggerDelegate: DigitalGate.LoginCoordinatorLoggerDelegate? {
+    get
+    set(newValue)
   }
   @objc public init(_ rootViewController: UIKit.UIViewController?)
   @objc open func start(dgFlow: DigitalGate.DGFlow = .login)
@@ -57,13 +57,13 @@ public enum DGLanguageError : Swift.Error {
   @objc public func disableKeyboardManager()
   @objc override dynamic public init()
 }
-@objc public protocol LoginCoordinatorDelegate {
-  @objc func dgLoginToken(_ token: Swift.String)
-  @objc func dgLoginFailure(_ reason: Swift.String, errorMessage: Swift.String)
-  @objc func dgConfigurationFailure(configError: Swift.String)
+public protocol LoginCoordinatorDelegate : AnyObject {
+  func dgLoginToken(_ token: Swift.String)
+  func dgLoginFailure(_ reason: Swift.String, errorMessage: Swift.String)
+  func dgConfigurationFailure(configError: Swift.String)
 }
-@objc public protocol LoginCoordinatorLoggerDelegate {
-  @objc optional func dgServiceLog(log: Swift.String)
+public protocol LoginCoordinatorLoggerDelegate : AnyObject {
+  func dgServiceLog(log: Swift.String)
 }
 public var dgKNotLoginToLoginSDK: Foundation.NSString
 public var dgKSessionTimeout: Foundation.NSString
