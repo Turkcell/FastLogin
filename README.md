@@ -66,8 +66,10 @@ Login Coordinator Delegate methods to handle what happens after the user tries t
  
 Here you would call your own API.
  
+You can not use LoginCoordinatorDelegate with extension. You should use like this. (Module stability)
+
 ```swift
-extension ViewController: LoginCoordinatorDelegate {
+class ViewController: UIViewController, LoginCoordinatorDelegate {
     func dgLoginToken(_ token: String) {
         print("TOKEN \(token)")
     }
