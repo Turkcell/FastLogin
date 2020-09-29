@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
 // swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name DigitalGate
 import CoreGraphics
 import CoreTelephony
@@ -28,12 +28,12 @@ public enum DGLanguageError : Swift.Error {
   public var rootViewController: UIKit.UIViewController?
   @objc public var appID: Swift.String? {
     @objc get
-    @objc set(newValue)
+    @objc set(value)
   }
   @objc public var disableCell: Swift.Bool
   @objc public var autoLoginOnly: Swift.Bool {
     @objc get
-    @objc set(newValue)
+    @objc set(value)
   }
   @objc public var disableAutoLogin: Swift.Bool
   @objc public var language: Swift.String
@@ -42,10 +42,15 @@ public enum DGLanguageError : Swift.Error {
   @objc public var transferToken: Swift.String?
   @objc public var isWidget: Swift.Bool
   @objc public var dismissCloseButton: Swift.Bool
+  @objc public var navigationBarColor: UIKit.UIColor {
+    @objc get
+    @objc set(value)
+  }
+  @objc public var dgKeyboardEnable: Swift.Bool
   @objc weak public var coordinatorDelegate: DigitalGate.LoginCoordinatorDelegate?
   @objc weak public var coordinatorLoggerDelegate: DigitalGate.LoginCoordinatorLoggerDelegate? {
     @objc get
-    @objc set(newValue)
+    @objc set(value)
   }
   @objc public init(_ rootViewController: UIKit.UIViewController?)
   @objc open func start(dgFlow: DigitalGate.DGFlow = .login)
