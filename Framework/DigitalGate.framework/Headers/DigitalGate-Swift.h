@@ -242,6 +242,7 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic) BOOL isWidget;
 @property (nonatomic) BOOL dismissCloseButton;
 @property (nonatomic, strong) UIColor * _Nonnull navigationBarColor;
+@property (nonatomic, strong) UIColor * _Nullable navigationBarButtonsColor;
 @property (nonatomic) BOOL dgKeyboardEnable;
 @property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
@@ -276,6 +277,8 @@ SWIFT_PROTOCOL("_TtP11DigitalGate30LoginCoordinatorLoggerDelegate_")
 @optional
 - (void)dgServiceLogWithLog:(NSString * _Nonnull)log;
 @end
+
+
 
 
 
@@ -553,6 +556,7 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic) BOOL isWidget;
 @property (nonatomic) BOOL dismissCloseButton;
 @property (nonatomic, strong) UIColor * _Nonnull navigationBarColor;
+@property (nonatomic, strong) UIColor * _Nullable navigationBarButtonsColor;
 @property (nonatomic) BOOL dgKeyboardEnable;
 @property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
@@ -587,6 +591,8 @@ SWIFT_PROTOCOL("_TtP11DigitalGate30LoginCoordinatorLoggerDelegate_")
 @optional
 - (void)dgServiceLogWithLog:(NSString * _Nonnull)log;
 @end
+
+
 
 
 
@@ -867,6 +873,7 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic) BOOL isWidget;
 @property (nonatomic) BOOL dismissCloseButton;
 @property (nonatomic, strong) UIColor * _Nonnull navigationBarColor;
+@property (nonatomic, strong) UIColor * _Nullable navigationBarButtonsColor;
 @property (nonatomic) BOOL dgKeyboardEnable;
 @property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
@@ -901,6 +908,8 @@ SWIFT_PROTOCOL("_TtP11DigitalGate30LoginCoordinatorLoggerDelegate_")
 @optional
 - (void)dgServiceLogWithLog:(NSString * _Nonnull)log;
 @end
+
+
 
 
 
@@ -1178,6 +1187,7 @@ SWIFT_CLASS("_TtC11DigitalGate18DGLoginCoordinator")
 @property (nonatomic) BOOL isWidget;
 @property (nonatomic) BOOL dismissCloseButton;
 @property (nonatomic, strong) UIColor * _Nonnull navigationBarColor;
+@property (nonatomic, strong) UIColor * _Nullable navigationBarButtonsColor;
 @property (nonatomic) BOOL dgKeyboardEnable;
 @property (nonatomic, weak) id <LoginCoordinatorDelegate> _Nullable coordinatorDelegate;
 @property (nonatomic, weak) id <LoginCoordinatorLoggerDelegate> _Nullable coordinatorLoggerDelegate;
@@ -1212,6 +1222,8 @@ SWIFT_PROTOCOL("_TtP11DigitalGate30LoginCoordinatorLoggerDelegate_")
 @optional
 - (void)dgServiceLogWithLog:(NSString * _Nonnull)log;
 @end
+
+
 
 
 
