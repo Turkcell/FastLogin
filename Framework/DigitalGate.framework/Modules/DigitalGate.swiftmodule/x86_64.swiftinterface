@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
 // swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name DigitalGate
 import CoreGraphics
 import CoreTelephony
@@ -10,19 +10,18 @@ import Swift
 import SystemConfiguration
 import UIKit
 import WebKit
-import _Concurrency
-extension WebKit.WKWebView {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var safeAreaInsets: UIKit.UIEdgeInsets {
-    @_Concurrency.MainActor(unsafe) @objc get
+extension WKWebView {
+  @objc override dynamic open var safeAreaInsets: UIKit.UIEdgeInsets {
+    @objc get
   }
 }
 public enum DGLanguageError : Swift.Error {
   case must
   public static func == (a: DigitalGate.DGLanguageError, b: DigitalGate.DGLanguageError) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
 }
 @objc open class DGLoginCoordinator : ObjectiveC.NSObject {
   @objc public var demoFlow: Swift.String?
@@ -65,6 +64,7 @@ public enum DGLanguageError : Swift.Error {
   @objc open func logout()
   @objc deinit
   @objc public func disableKeyboardManager()
+  @objc override dynamic public init()
 }
 @objc public protocol LoginCoordinatorDelegate {
   @objc func dgLoginToken(_ token: Swift.String)
@@ -81,13 +81,13 @@ public var dgKUserExit: Foundation.NSString
   case login
   case register
   case change_user
-  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
 }
-extension DigitalGate.DGFlow : Swift.Equatable {
+extension DGFlow : Swift.Equatable {
 }
 public func == (lhs: DigitalGate.DGFlow, rhs: DigitalGate.DGFlow) -> Swift.Bool
 @objc public enum DGEnvironment : Swift.Int {
@@ -97,8 +97,8 @@ public func == (lhs: DigitalGate.DGFlow, rhs: DigitalGate.DGFlow) -> Swift.Bool
   public var title: Swift.String {
     get
   }
-  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
