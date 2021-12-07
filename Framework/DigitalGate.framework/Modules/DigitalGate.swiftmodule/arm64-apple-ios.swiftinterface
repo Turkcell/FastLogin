@@ -35,6 +35,10 @@ public enum DGLanguageError : Swift.Error {
     @objc get
     @objc set(value)
   }
+  public var darkMode: Swift.Bool {
+    get
+    set(value)
+  }
   @objc public var disableAutoLogin: Swift.Bool
   @objc public var language: Swift.String
   @objc public var environment: DigitalGate.DGEnvironment
