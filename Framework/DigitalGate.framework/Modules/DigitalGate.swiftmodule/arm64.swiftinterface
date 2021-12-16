@@ -35,16 +35,16 @@ public enum DGLanguageError : Swift.Error {
     @objc get
     @objc set(value)
   }
-  public var darkMode: Swift.Bool {
-    get
-    set(value)
-  }
   @objc public var disableAutoLogin: Swift.Bool
   @objc public var language: Swift.String
   @objc public var environment: DigitalGate.DGEnvironment
   @objc public var accessGroup: Swift.String?
   @objc public var transferToken: Swift.String?
   @objc public var isWidget: Swift.Bool
+  public var darkMode: Swift.Bool {
+    get
+    set(value)
+  }
   @objc public var dismissCloseButton: Swift.Bool
   @objc public var navigationBarColor: UIKit.UIColor {
     @objc get
